@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-PROJECT_ROOT = os.path.realpath(__file__)
+PROJECT_ROOT = os.path.realpath(os.path.dirname(__file__))
 
 
 # Quick-start development settings - unsuitable for production
@@ -67,8 +67,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'sombrasarmy',                      # Or path to database file if using sqlite3.
         #The following settings are not used with sqlite3:
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
+        'USER': 'sombras_user',
+        'PASSWORD': '@sombras#',
         'HOST': 'localhost',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '5432',                      # Set to empty string for default.
     }
@@ -103,7 +103,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = 'staticfiles'
+STATIC_ROOT = '/home/franconori/webapps/static_sombras'
+
+# Additional locations of static files
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, '../static/'),
+)
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -123,7 +128,7 @@ MEDIA_ROOT = (os.path.join(BASE_DIR, '../media'))
 MEDIA_URL = '/media/'
 
 FIXTURE_DIRS = (
-    os.path.join(BASE_DIR, '../static/fixtures'),
+    # os.path.join(BASE_DIR, '../static/fixtures'),
 )
 
 # For Sidebar Menu (List of apps and models) (RECOMMENDED)

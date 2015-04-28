@@ -1,5 +1,3 @@
 *.pyc
-Dise�o/
-Documentation/
-
-.idea
+server.sh
+README.md
