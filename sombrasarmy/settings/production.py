@@ -54,6 +54,16 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+# List of callables that know how to import templates from various sources.
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+#     'django.template.loaders.eggs.Loader',
+)
+
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, '../templates'),
+)
+
 ROOT_URLCONF = 'sombrasarmy.urls'
 
 WSGI_APPLICATION = 'sombrasarmy.wsgi.application'
@@ -139,4 +149,4 @@ TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
 
 BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
 
-AUTH_USER_MODEL = 'main.User'
+# AUTH_USER_MODEL = 'main.User'
